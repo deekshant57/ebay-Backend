@@ -1,0 +1,1 @@
+// sellerName, sellerEmail , password, sellerLocation;
