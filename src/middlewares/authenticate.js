@@ -2,7 +2,7 @@ require("dotenv").config();
 
 const jwt = require("jsonwebtoken");
 
-console.log(process.env);
+// console.log(process.env);
 
 const verifyToken = (token) => {
   return new Promise((resolve, reject) => {
