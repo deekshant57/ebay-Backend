@@ -5,6 +5,7 @@ const express = require("express");
 // const transporter = require("../configs/mail");
 
 const Product = require("../models/product.model");
+const authenticate = require("../middlewares/authenticate");
 
 const router = express.Router();
 
@@ -44,7 +45,7 @@ router.get("/", async (req, res) => {
   }
 });
 
-router.post("/", async (req, res) => {
+router.post("/", authenticate, async (req, res) => {
   try {
     const product = await Product.create(req.body);
 

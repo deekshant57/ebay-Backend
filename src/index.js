@@ -10,7 +10,11 @@ const sellerController = require("./controllers/sellerAccount.controller");
 
 const productController = require("./controllers/product.controller");
 
+const cors = require("cors");
+
 const app = express();
+
+app.use(cors());
 
 app.use(express.json());
 
