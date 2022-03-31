@@ -10,6 +10,8 @@ const sellerController = require("./controllers/sellerAccount.controller");
 
 const productController = require("./controllers/product.controller");
 
+const validator = require("./middlewares/user.validator");
+
 const cors = require("cors");
 
 const app = express();
@@ -19,7 +21,7 @@ app.use(cors());
 app.use(express.json());
 
 // Endpoint to register a user(customer)
-app.use("/register", register);
+app.use("/register", validator, register);
 
 // Endpoint to login for users
 app.use("/login", login);
@@ -36,7 +38,7 @@ app.use("/loginSeller", loginSeller);
 // Endpoint to get the seller account data
 app.use("/seller", sellerController);
 
-// Endpoint tp add the products as a seller
+// Endpoint to add the products as a seller
 app.use("/product", productController);
 
 module.exports = app;

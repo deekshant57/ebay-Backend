@@ -15,13 +15,7 @@ router.get("", async (req, res) => {
 });
 router.post(
   "/",
-  body("firstName")
-    .trim()
-    .not()
-    .isEmpty()
-    .withMessage("First Name cannot be empty")
-    .isLength({ min: 4 })
-    .withMessage("First Name must be at least 4 characters"),
+
   async (req, res) => {
     try {
       console.log(body("firstName"));
