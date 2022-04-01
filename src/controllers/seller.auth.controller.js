@@ -3,7 +3,7 @@ const jwt = require("jsonwebtoken");
 require("dotenv").config();
 
 const generateToken = (seller) => {
-  return jwt.sign({ seller }, process.env.SECRET_KEY_SELLER);
+  return jwt.sign({ seller }, process.env.SECRET_KEY);
 };
 const registerSeller = async (req, res) => {
   try {

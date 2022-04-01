@@ -11,7 +11,7 @@ const sellerController = require("./controllers/sellerAccount.controller");
 const productController = require("./controllers/product.controller");
 
 const validator = require("./middlewares/user.validator");
-
+const sellervalidator=require("./middlewares/seller.validator")
 const cors = require("cors");
 
 const app = express();
@@ -30,7 +30,7 @@ app.use("/login", login);
 app.use("/user", userController);
 
 // Endpoint to register a new seller account
-app.use("/registerSeller", registerSeller);
+app.use("/registerSeller",sellervalidator, registerSeller);
 
 // Endpoint to login a seller account
 app.use("/loginSeller", loginSeller);
