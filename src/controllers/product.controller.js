@@ -45,13 +45,11 @@ router.get("/", async (req, res) => {
   }
 });
 
-router.post("/", async (req, res) => {
+router.post("/", authenticate, async (req, res) => {
   try {
     const product = await Product.create(req.body);
-    // console.log(product);
 
     return res.status(201).send({ message: "Product created successfully" });
-    // return res.status(201).send(product);
   } catch (err) {
     return res.status(500).send({ message: err.message });
   }
